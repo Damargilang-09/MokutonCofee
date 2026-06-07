@@ -1,0 +1,38 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+
+:root {
+  --moku-light: #AAB69E;
+  --moku: #86917B;
+  --moku-dark: #758168;
+  --moku-white: #fff
+}
+.text-moku{
+  color:#86917B
+}
+.text-moku-light{
+  color: #758168;
+}
+
+.bg-moku {
+  background-color: var(--moku);
+}
+
+.bg-moku-light {
+  background-color: var(--moku-light);
+}
+
+.bg-moku-dark {
+  background-color: var(--moku-dark);
+}
+
+.link-moku {
+  color: var(--moku-white);
+  transition: color 0.3s ease;
+}
+
+.link-moku:hover {
+  color: var(--moku-light);
+}
