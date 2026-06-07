@@ -1,5 +1,5 @@
 import TeamCard from "../../features/OurTeam/component/teamsCard";
-import { useTeam } from "../../features/OurTeam/hooks/useteam";
+import { useTeam } from "../../features/OurTeam/hooks/useTeams";
 TeamCard;
 
 export default function TeamsPage() {
