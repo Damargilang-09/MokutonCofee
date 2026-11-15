@@ -58,9 +58,6 @@ export default function HomePage() {
                 "Plant the seeds of your ideas today and watch them grow into
                 knowledge, clarity, and inspiration tomorrow."
               </h1>
-              <button className="py-2 px-2 rounded-box text-md border hover:bg-emerald-900">
-                <Link to="/MokutonJournal">Learn More</Link>
-              </button>
             </div>
           </div>
         </div>

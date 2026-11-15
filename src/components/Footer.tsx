@@ -79,8 +79,8 @@ export default function Footer() {
       {/* Information */}
       <nav>
         <h6 className="footer-title text-xl text-white">Information</h6>
-        <Link to="/ContactUs" className="link link-hover text-lg text-stone-300">
-          Contact Us
+        <Link to="/ShopCoffee" className="link link-hover text-lg text-stone-300">
+          Shop Coffee
         </Link>
       </nav>
     </footer>

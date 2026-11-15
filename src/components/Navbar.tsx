@@ -1,13 +1,12 @@
 import { NavLink } from "react-router-dom";
 import type { NavItem } from "../features/Navbar/types/Navbar-types";
+import AuthMenu from "./AuthMenu";
 
 const navItem: NavItem[] = [
   { label: "Home", path: "/" },
   { label: "Our Story", path: "/AboutUs" },
   { label: "Shop Coffee", path: "/ShopCoffee" },
-  { label: "Mokuton Journal", path: "/MokutonJournal" },
   { label: "Our Teams", path: "/MeetOurTeam" },
-  { label: "Contact Us", path: "/ContactUs" },
 ];
 
 export default function Navbar() {
@@ -38,8 +37,8 @@ export default function Navbar() {
             ))}
           </ul>
         </div>
-        <div className="navbar-end">
-          <span></span>
+        <div className="navbar-end pr-8">
+          <AuthMenu />
         </div>
       </div>
     </>

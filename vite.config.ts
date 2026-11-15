@@ -10,4 +10,6 @@ export default defineConfig({
     babel({ presets: [reactCompilerPreset()] }),
    tailwindcss(),
   ],
+  // backend MokutonCoffee-API CORS hanya mengizinkan http://localhost:3000
+  server: { port: 3000 },
 })
