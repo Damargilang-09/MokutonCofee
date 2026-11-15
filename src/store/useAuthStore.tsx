@@ -1,11 +1,15 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-type User = {
-  objectId: string;
-  email: string;
+/**
+ * User MokutonCoffee-API. JWT disimpan backend di httpOnly cookie "token",
+ * jadi store hanya menampung data profil untuk UI/guard.
+ */
+export type User = {
+  id: string;
+  role: string;
   name: string;
-  token: string;
+  email: string;
 };
 
 type AuthStore = {
@@ -24,7 +28,8 @@ export const useAuthStore = create<AuthStore>()(
       isAuthenticated: () => !!get().user,
     }),
     {
-      name: "auth-storage",
+      // key baru: shape user lama (Backendless) tidak kompatibel
+      name: "mokuton-auth",
     }
   )
 );

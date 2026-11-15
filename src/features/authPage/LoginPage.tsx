@@ -1,8 +1,9 @@
-import { useNavigate } from "react-router-dom";
+import { login, getCurrentUser } from "../LoginPage/api/authServiceApi";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { login } from "../LoginPage/api/authServiceApi";
 import { useAuthStore } from "../../store/useAuthStore";
 
 const loginSchema = z.object({
@@ -29,19 +30,18 @@ export default function LoginPage() {
   
   const onSubmit = async (data: LoginForm) => {
     try {
-      const response = await login({
+      await login({
         email: data.email,
         password: data.password,
       });
-      setUser({
-        objectId: response.objectId,
-        email: response.email,
-        name: response.name,
-        token: response["user-token"],
-      });
-      navigate("/blog/create");
-    } catch (error: any) {
-      console.log("Error detail:", error.response?.data);
+      // cookie token sudah diset backend; ambil profil lengkap via /auth/me
+      const user = await getCurrentUser();
+      setUser(user);
+      navigate("/");
+    } catch (error: unknown) {
+      if (axios.isAxiosError(error)) {
+        console.log("Error detail:", error.response?.data);
+      }
       alert("Email atau password salah.");
     }
   };
@@ -91,6 +91,12 @@ export default function LoginPage() {
         <button className="btn btn-ghost mt-1 w-full" type="reset">
           Reset
         </button>
+        <p className="text-sm text-center mt-2">
+          Belum punya akun?{" "}
+          <Link to="/register" className="link link-hover font-medium">
+            Register
+          </Link>
+        </p>
       </form>
     </div>
   );

@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { IoMenu } from "react-icons/io5";
 import { BsThreeDotsVertical } from "react-icons/bs";
-import { FaUser, FaSignOutAlt, FaPenSquare, FaInbox } from "react-icons/fa";
+import { FaUser, FaSignOutAlt } from "react-icons/fa";
 import { useState } from "react";
 import { useAuthStore } from "../store/useAuthStore";
 import { logout } from "../features/LoginPage/api/authServiceApi";
@@ -62,9 +62,7 @@ export default function NavMobile() {
                 <li><Link to="/" onClick={handleClose}>Home</Link></li>
                 <li><Link to="/AboutUs" onClick={handleClose}>Our Story</Link></li>
                 <li><Link to="/ShopCoffee" onClick={handleClose}>Shop Coffee</Link></li>
-                <li><Link to="/MokutonJournal" onClick={handleClose}>Mokuton Journal</Link></li>
                 <li><Link to="/MeetOurTeam" onClick={handleClose}>Our Teams</Link></li>
-                <li><Link to="/ContactUs" onClick={handleClose}>Contact Us</Link></li>
               </ul>
             </div>
           </div>
@@ -90,18 +88,6 @@ export default function NavMobile() {
             <ul className="menu menu-md dropdown-content bg-base-100 rounded-box z-9999 mt-3 w-48 p-2 shadow mr-2">
               {isAuthenticated ? (
                 <>
-                  <li>
-                    <Link to="/blog/create">
-                      <FaPenSquare />
-                      Tulis Artikel
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/inbox">
-                      <FaInbox />
-                      Inbox
-                    </Link>
-                  </li>
                   <li>
                     <button
                       onClick={handleLogout}
